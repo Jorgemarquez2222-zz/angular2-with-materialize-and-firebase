@@ -1,0 +1,38 @@
+<ul>
+    <!--<li *ngFor="let item of items | async">
+      <input type="text" #updatetext [value]="item?.id"  [(ngModel)]="item.id"/>
+      <button (click)="updateItem(item.$key, updatetext.value)">Update</button>
+      <button (click)="deleteItem(item.$key)">Delete</button>
+    </li>-->
+  </ul>
+  <!--<input type="text" #newitem />
+  <button (click)="addItem(newitem.value)">Add</button>
+  <button (click)="deleteEverything()">Delete All</button>
+
+  <input type="text" placeholder="Email" #email>
+  <input type="text" placeholder="Pass" #pass>
+  <button (click)="singUp(email.value,pass.value)">SingUp</button>
+
+<br>
+<br>
+  <input type="text" placeholder="Email" #emaillogin>
+  <br>
+  <input type="text" placeholder="Pass" #passlogin>
+<br>-->
+
+
+<div> {{ (af.auth | async)?.uid }}</div> 
+<div> {{ (user.auth)?.uid }}</div> 
+<div> {{ (user.auth)?.displayName }}</div> 
+<div> {{ user.auth?.email }}</div> 
+<div> {{ user.auth?.photoURL }}</div> 
+
+
+<img  src="{{ user.auth?.photoURL }}" alt="">
+  <!--<button (click)="login(emaillogin.value,passlogin.value)">Login</button>
+  <button (click)="logout()">Logout</button>-->
+<br>
+<br>
+  <button (click)="login2()">Login Google</button>
+  <button (click)="logout()">Logout</button>
+

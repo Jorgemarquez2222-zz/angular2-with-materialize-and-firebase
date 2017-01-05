@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+      <div class="input-field col s12">
+        <input (keyup)="searchMiembro()" [(ngModel)]="searchSrt" type="text" class="validate">
+        <label for="Search">Search</label>
+      </div>
+    <div *ngFor="let miembro of miembros | paginate: { itemsPerPage: 4, currentPage: p }">
+        <div class="row col s12 m6 " >
+            <div class="card-panel hoverable {{miembro.colorFondo}} lighten-1 z-depth-5 ">
+              <div class="row valign-wrapper">
+                <div class="col s3 m2">
+                <a routerLink="/detailsMiembro/{{miembro.id}}">                
+                  
+                  <img  src="assets/{{miembro.imgPerfil}}.jpg" alt="" class="circle responsive-img">
+                </a> 
+                  
+                </div>
+                <div *ngIf="miembro?.$key != idMod" class="col s9 m10" >
+                  <span class="black-text">
+                    <h5>{{miembro.title}}</h5>
+                  </span>
+                  <span class="black-text">
+                    {{miembro.body}}
+                  </span>
+
+                </div>
+                
+                <div *ngIf="miembro?.$key == idMod" class="col s9 m10">
+                  <label for="textarea1">Textarea</label>
+                  <textarea [(ngModel)]="miembro.body" id="textarea1" class="materialize-textarea"></textarea>
+                </div>               
+              </div>
+               
+                <a class="btn-floating btn-small waves-effect waves-light red right center" (click)="delMiembroArray(miembro?.$key)">x</a>
+                <a class="btn-floating btn-small waves-effect waves-light blue right center" (click)="modMiembro(miembro,miembro?.$key)">m</a>
+            </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row col s12 center pagination">
+    <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+  </div>     
+</div>
+
+<div class="fixed-action-btn vertical">
+    <a class="btn-floating btn-large red">Opt</a>
+    <ul>
+      <li><a class="btn-floating purple darken-1 "(click)="openModal()" >+</a></li>
+    </ul>
+</div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      
+        <form materialize class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input #id type="text" class="validate">
+              <label for="id">Id</label>
+            </div>
+            <div class="input-field col s6">
+              <input #title type="text" class="validate">
+              <label for="title">Title</label>
+            </div>
+          </div>
+          <div class="row">
+        <div class="input-field col s12">
+          <textarea #body class="materialize-textarea"></textarea>
+          <label for="body">Body</label>
+        </div>
+            <div class="input-field col s6">
+              <input #background type="text" class="validate">
+              <label for="Background">Background</label>
+            </div>
+            <div class="input-field col s6">
+              <input #imgPerfil type="text" class="validate">
+              <label for="imgPerfil">imgPerfil</label>
+            </div>
+          </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+      <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" 
+      (click)="addMiembro(id.value,title.value,body.value,background.value,imgPerfil.value)">Agree</a>
+    </div>
+  </div>
+
+  <br/><br/>
+
+      <!-- toast -->
+      <!--<a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast 1!</a>
+      <a class="btn" (click)="triggerToast()" materialize [materializeParams]="['I am also a toast',4000]" [materializeActions]="globalActions">Toast 2!</a>-->
