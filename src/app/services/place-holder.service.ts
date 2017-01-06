@@ -15,8 +15,6 @@ export class PlaceHolderService {
    return this.http.get('https://jsonplaceholder.typicode.com/posts')
    .map(res => res.json()); 
   }
-//='https://api.spotify.com/v1/search?query='+str+'&offset=0&limit=20&type='+type+'&market=US'
-//https://jsonplaceholder.typicode.com/posts?_page=7&_limit=6
 
   getCardsScroll(_start:number,_end:number){
      return this.http.get('https://jsonplaceholder.typicode.com/posts?_start='+_start+'&_end='+_end+'')
