@@ -30,8 +30,10 @@ import { AngularFireModule,AuthProviders, AuthMethods } from 'angularfire2';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
-
-
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './services/cart.service';
+import { TiendaComponent } from './tienda/tienda.component';
+import { ProductsService } from './services/products.service';
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'mostrar', component: MostrarComponent },
@@ -40,6 +42,7 @@ const appRoutes: Routes = [
   { path: 'mostrar2', component: Mostrar2Component },
   { path: 'pagination', component: PaginationComponent },
   { path: 'formularios', component: FormulariosComponent },
+   { path: 'tienda', component: TiendaComponent },
   { path: 'detailsMiembro/:id', component: DetailsMiembroComponent }
 ];
 
@@ -72,6 +75,8 @@ export const firebaseConfig = {
     DetailsMiembroComponent,
     // AuthComponent,
     LoginComponent,
+      CartComponent,
+        TiendaComponent,
     
   ],
   imports: [
@@ -91,7 +96,9 @@ export const firebaseConfig = {
               SpinnerService,
               ServicelocalService,
               ServiceFirebaseService,
-              AuthService
+              AuthService,
+              CartService,
+              ProductsService,
               ],
   bootstrap: [AppComponent]
   
