@@ -2,7 +2,7 @@ import { Component, OnInit,EventEmitter, } from '@angular/core';
 import { Miembros } from '../interfaceMiembros';
 import { ServicelocalService } from '../services/servicelocal.service';
 import { MaterializeAction } from 'angular2-materialize';
-import { ServiceAuthService } from '../services/service-auth.service';
+import { AuthService } from '../services/auth.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -16,9 +16,10 @@ export class ImagenesComponent {
   idMod: string = "-1";
   miembros: Miembros[];
   searchSrt: string= "";
+
   constructor(
-    private servicioLocal: ServicelocalService,
-    private _serviceAuthService: ServiceAuthService,
+    private _servicioLocal: ServicelocalService,
+    private _authService: AuthService,
     public af: AngularFire,
     private router:Router
     ) { 
@@ -26,7 +27,7 @@ export class ImagenesComponent {
         if(!user) {
           this.router.navigate(['/']);
         }else{
-           this._serviceAuthService.getMiembros().subscribe(
+           this._authService.getMiembros().subscribe(
             res => this.miembros = res // console.log(res)
             );
         }
@@ -50,44 +51,25 @@ export class ImagenesComponent {
   }
   
   delMiembroArray(miembro : string){
-    //let posicion = this.miembros.indexOf(miembro);
-    this._serviceAuthService.deleteItem(miembro);
+    this._authService.deleteItem(miembro);
   }
 
   addMiembro(id:string,title:string,body:string,background:string,imgPerfil:string){
-    // let objeto: Miembros;
-    //  objeto={
-    //   id:id,
-    //   title:title,
-    //   body:body,
-    //   url:"",
-    //   thumbnailUrl:"",
-    //   colorFondo:backgroung,
-    //   imgPerfil:imgPerfil
-    // }
-    // this.miembros.push(objeto);
-     this._serviceAuthService.addItem(id,title,body,background,imgPerfil);
+     this._authService.addItem(id,title,body,background,imgPerfil);
   }
 
   modMiembro(miembro : Miembros, key:string){
      
     if(this.idMod != "-1"){
       this.idMod = "-1";
-      console.log('if');
-    this._serviceAuthService.updateItem(miembro,key);
-      
+      this._authService.updateItem(miembro,key);
     } else{
-console.log('else');      
-    this.idMod = key;
-    
-
+      this.idMod = key;
     }
-
-    //this._serviceAuthService.updateItem(miembro,key);
   }
 
   searchMiembro(){
-    this.miembros =this.servicioLocal.searchSrt(this.searchSrt);
+    this.miembros =this._servicioLocal.searchSrt(this.searchSrt);
   }
 
 }

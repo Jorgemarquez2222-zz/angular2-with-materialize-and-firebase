@@ -12,12 +12,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class Mostrar2Component  implements OnInit{
 
- miembros: Miembros[];
- _start: number = 0;
- _end: number = 6;
+  miembros: Miembros[];
+  start: number = 0;
+  end: number = 6;
+
   constructor(
-    private servicio : PlaceHolderService, 
-    public spinner: SpinnerService,
+    private _servicio : PlaceHolderService, 
+    public _spinner: SpinnerService,
     public af: AngularFire,
     private router:Router
   ) { 
@@ -28,35 +29,30 @@ export class Mostrar2Component  implements OnInit{
            this.miembros = [];
         }
       });
-   
   }
 
     callCardsScroll(){
       
-        this.servicio.getCardsScroll(this._start,this._end).subscribe(
+        this._servicio.getCardsScroll(this.start,this.end).subscribe(
           tarjeta => { 
             console.log(tarjeta);
             tarjeta.forEach(element => {
               if(tarjeta.length > 0){
                 this.miembros.push(element);
               }
-            
             });
-          this.spinner.stop();
+          this._spinner.stop();
           });
-         
-            
     }
 
      ngOnInit(){
-       this.spinner.start();
-       console.log('ngOnInit');
+       this._spinner.start();
        this.callCardsScroll();
        
      }
 
     ngOnDestroy(){
-      //this.spinner.stop();
+      this._spinner.stop();
     }
 
     onScroll () {
@@ -64,12 +60,9 @@ export class Mostrar2Component  implements OnInit{
         }
 
     onScrollDown () {
-       console.log('onScrollDown');
-       this._start = this._end; 
-       this._end= this._end + 6;
-      this.callCardsScroll();  
-        
-     
+       this.start = this.end; 
+       this.end= this.end + 6;
+      this.callCardsScroll();
     }
   
     onScrollUp () {

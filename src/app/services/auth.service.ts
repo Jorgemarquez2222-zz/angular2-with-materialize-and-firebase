@@ -3,7 +3,7 @@ import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProvi
 import { Router, ActivatedRoute } from '@angular/router';
 import { Miembros } from '../interfaceMiembros';
 @Injectable()
-export class ServiceAuthService {
+export class AuthService {
 items: FirebaseListObservable<any>;
   user = {};
   

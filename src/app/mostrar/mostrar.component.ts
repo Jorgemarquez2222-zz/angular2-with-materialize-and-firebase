@@ -16,10 +16,11 @@ export class MostrarComponent implements OnInit {
   posicion : number =0;
   items: FirebaseListObservable<any>;
 
-  constructor( private servicio : PlaceHolderService,
-   public spinner: SpinnerService,
-   public af: AngularFire,
-   private router:Router
+  constructor( 
+      private _servicio : PlaceHolderService,
+      public _spinner: SpinnerService,
+      public af: AngularFire,
+      private router:Router
    ) {
      this.af.auth.subscribe(user => {
         if(!user) {
@@ -30,21 +31,21 @@ export class MostrarComponent implements OnInit {
 
  ngOnInit(){
    
-     this.spinner.start();
+     this._spinner.start();
 
-     this.servicio.getCards()
+     this._servicio.getCards()
      .subscribe(
        res =>{ 
          console.log(res);
          //this.miembros = res
-           this.spinner.stop();
+           this._spinner.stop();
          }
      );
   }
 
 
   ngOnDestroy(){
-    this.spinner.stop();
+    this._spinner.stop();
   }
 
 }

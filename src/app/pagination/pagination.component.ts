@@ -15,8 +15,8 @@ export class PaginationComponent implements OnInit  {
   miembros : Miembros[];
 
   constructor(
-    private servicio : PlaceHolderService, 
-    public spinner: SpinnerService,
+    private _servicio : PlaceHolderService, 
+    public _spinner: SpinnerService,
     public af: AngularFire,
     private router:Router
     ) { 
@@ -30,19 +30,18 @@ export class PaginationComponent implements OnInit  {
   }
 
     ngOnInit(){
-       this.spinner.start();
+       this._spinner.start();
 
-    this.servicio.getCardsPagination().subscribe(
+    this._servicio.getCardsPagination().subscribe(
      tarjeta => { 
        this.miembros = tarjeta;
-       this.spinner.stop();
+       this._spinner.stop();
     });
     }
 
   OnDestroy(){
-       this.spinner.stop();
+       this._spinner.stop();
   }
-
 
   }
 

@@ -29,7 +29,7 @@ import { ServiceFirebaseService } from './services/service-firebase.service';
 import { AngularFireModule,AuthProviders, AuthMethods } from 'angularfire2';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { ServiceAuthService } from './services/service-auth.service';
+import { AuthService } from './services/auth.service';
 
 
 const appRoutes: Routes = [
@@ -91,7 +91,7 @@ export const firebaseConfig = {
               SpinnerService,
               ServicelocalService,
               ServiceFirebaseService,
-              ServiceAuthService
+              AuthService
               ],
   bootstrap: [AppComponent]
   

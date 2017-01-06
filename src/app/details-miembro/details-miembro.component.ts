@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Miembros } from '../interfaceMiembros';
 import { ActivatedRoute } from '@angular/router';
-import { ServicelocalService } from '../services/servicelocal.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-details-miembro',
@@ -10,7 +10,11 @@ import { ServicelocalService } from '../services/servicelocal.service';
 })
 export class DetailsMiembroComponent implements OnInit {
 
-  constructor(private _route:ActivatedRoute, private servicelocal : ServicelocalService) { }
+  edit: boolean = false;
+
+  constructor(private _route:ActivatedRoute, 
+      private _authService: AuthService,
+  ) { }
 
   idMiembro:string;
   miembro : Miembros;
@@ -19,10 +23,33 @@ export class DetailsMiembroComponent implements OnInit {
          this._route.params
             .map(params => params['id'] )
             .subscribe((id) => {
-              this.idMiembro = id;
+              this.idMiembro = id;            
+              this.getMiembro(this.idMiembro);
                 });
-      this.miembro = this.servicelocal.getMiembro(this.idMiembro);
-      
+    }
+
+    getMiembro(id:string){
+      let miembro: Miembros;
+      this._authService.getMiembros().subscribe(
+        res => 
+        {
+          res.forEach(element => {
+            if(element.$key.toUpperCase() == id.toUpperCase()){
+              this.miembro = element;
+            }
+          });
+        }
+      )
+    }
+
+    modMiembro(miembro : Miembros, key : string){
+      this.edit = !this.edit;
+      // if(!this.edit){
+      //   console.log("modificado");
+      // console.log(miembro);
+        console.log("mod");
+        this._authService.updateItem(miembro,key);
+      // }
     }
     
 }

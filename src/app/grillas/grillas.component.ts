@@ -12,7 +12,7 @@ export class GrillasComponent {
 
   miembros: Miembros[];
   constructor(
-    private servicioLocal: ServicelocalService,
+    private _servicioLocal: ServicelocalService,
      public af: AngularFire,
    private router:Router
   ) { 
@@ -20,7 +20,9 @@ export class GrillasComponent {
         if(!user) {
           this.router.navigate(['/']);
         }else{
-          this.miembros=this.servicioLocal.getMiembros();
+         this._servicioLocal.getMiembros().subscribe(res => {
+            this.miembros = res;
+        })
         }
       });
    
