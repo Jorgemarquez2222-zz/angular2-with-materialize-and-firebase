@@ -17,7 +17,7 @@ import { Mostrar2Component } from './mostrar2/mostrar2.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { FooterComponent } from './footer/footer.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+// import { SidenavComponent } from './sidenav/sidenav.component';
 import { MaterializeModule } from 'angular2-materialize';
 import { FormulariosComponent } from './formularios/formularios.component';
 import { DetailsMiembroComponent } from './details-miembro/details-miembro.component';
@@ -25,7 +25,7 @@ import { ServicelocalService } from './services/servicelocal.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ServiceFirebaseService } from './services/service-firebase.service';
-import { AuthComponent } from './auth/auth.component';
+// import { AuthComponent } from './auth/auth.component';
 import { AngularFireModule,AuthProviders, AuthMethods } from 'angularfire2';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -67,10 +67,10 @@ export const firebaseConfig = {
     Mostrar2Component,
     PaginationComponent,
     FooterComponent,
-    SidenavComponent,
+    // SidenavComponent,
     FormulariosComponent,
     DetailsMiembroComponent,
-    AuthComponent,
+    // AuthComponent,
     LoginComponent,
     
   ],

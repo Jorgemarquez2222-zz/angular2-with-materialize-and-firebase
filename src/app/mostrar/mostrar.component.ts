@@ -26,7 +26,7 @@ export class MostrarComponent implements OnInit {
      .subscribe(
        res =>{ 
          console.log(res);
-         this.miembros = res
+         //this.miembros = res
            this.spinner.stop();
          }
      );

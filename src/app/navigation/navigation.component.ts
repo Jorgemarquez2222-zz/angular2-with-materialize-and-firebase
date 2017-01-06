@@ -22,7 +22,7 @@ user = {};
           this.user = user;
         }
         else {
-          // user not logged in
+           // user not logged in
           this.login = "Log in";
           this.user = {};
         }
