@@ -24,10 +24,7 @@ items: FirebaseListObservable<any>;
           // user not logged in
           this.user = {};
           this.router.navigate(['/']);
-          console.log(this.router.url);
           this.logeado = false;
-          console.log(this.logeado);
-          
         }
       });
    }
