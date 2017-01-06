@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlaceHolderService } from '../services/place-holder.service';
 import { Miembros } from '../interfaceMiembros';
 import { SpinnerService } from '../services/spinner.service';
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mostrar2',
@@ -13,8 +15,20 @@ export class Mostrar2Component  implements OnInit{
  miembros: Miembros[];
  _start: number = 0;
  _end: number = 6;
-  constructor(private servicio : PlaceHolderService, public spinner: SpinnerService) { 
-    this.miembros = [];
+  constructor(
+    private servicio : PlaceHolderService, 
+    public spinner: SpinnerService,
+    public af: AngularFire,
+    private router:Router
+  ) { 
+    this.af.auth.subscribe(user => {
+        if(!user) {
+          this.router.navigate(['/']);
+        }else{
+           this.miembros = [];
+        }
+      });
+   
   }
 
     callCardsScroll(){
@@ -28,7 +42,7 @@ export class Mostrar2Component  implements OnInit{
               }
             
             });
-          //this.spinner.stop();
+          this.spinner.stop();
           });
          
             

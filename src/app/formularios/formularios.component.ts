@@ -1,7 +1,8 @@
 import { Component, OnInit,EventEmitter } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
-
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-formularios',
   templateUrl: './formularios.component.html',
@@ -13,7 +14,16 @@ export class FormulariosComponent implements OnInit {
   registerForm: FormGroup;
   formValues: any;
 
-  constructor(private fb: FormBuilder){};
+  constructor(private fb: FormBuilder, public af: AngularFire,
+   private router:Router){
+     this.af.auth.subscribe(user => {
+        if(!user) {
+          this.router.navigate(['/']);
+        }else{
+         
+        }
+      });
+   };
   
   ngOnInit(){
   

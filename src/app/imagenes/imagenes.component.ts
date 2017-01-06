@@ -3,7 +3,8 @@ import { Miembros } from '../interfaceMiembros';
 import { ServicelocalService } from '../services/servicelocal.service';
 import { MaterializeAction } from 'angular2-materialize';
 import { ServiceAuthService } from '../services/service-auth.service';
-
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-imagenes',
   templateUrl: './imagenes.component.html',
@@ -17,13 +18,19 @@ export class ImagenesComponent {
   searchSrt: string= "";
   constructor(
     private servicioLocal: ServicelocalService,
-    private _serviceAuthService: ServiceAuthService
+    private _serviceAuthService: ServiceAuthService,
+    public af: AngularFire,
+    private router:Router
     ) { 
-    this._serviceAuthService.getMiembros().subscribe(
-      res => this.miembros = res // console.log(res)
-     
-   );
-  //  console.log(this.servicioLocal.getMiembros());
+        this.af.auth.subscribe(user => {
+        if(!user) {
+          this.router.navigate(['/']);
+        }else{
+           this._serviceAuthService.getMiembros().subscribe(
+            res => this.miembros = res // console.log(res)
+            );
+        }
+      });
   }
 
   modalActions = new EventEmitter<string|MaterializeAction>();
