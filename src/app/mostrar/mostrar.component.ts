@@ -13,6 +13,7 @@ export class MostrarComponent implements OnInit {
 
   miembros: Miembros[] = [];
   posicion : number =0;
+
   constructor(private servicio : PlaceHolderService,
    public spinner: SpinnerService
    ) {}
@@ -20,30 +21,16 @@ export class MostrarComponent implements OnInit {
  ngOnInit(){
    
      this.spinner.start();
+
      this.servicio.getCards()
      .subscribe(
        res =>{ 
+         console.log(res);
          this.miembros = res
            this.spinner.stop();
          }
      );
-
-    //this.fbGetData(); 
-    
   }
-
-
-  // fbGetData(){
-  //   firebase.database().ref('/').on('child_added', (snapshot) => {
-  //     this.miembros.unshift(snapshot.val()) ;
-  //     this.spinner.stop();
-  //   })  
-  // }
-
-  // fbPostData(id:string,title:string,body:string,backgroung:string,imgPerfil:string){
-  //   firebase.database().ref('/').push({id:id,title:title,body:body,backgroung:backgroung,imgPerfil:imgPerfil});
-  //   console.log('adicionado un elemento');
-  // }
 
 
   ngOnDestroy(){
