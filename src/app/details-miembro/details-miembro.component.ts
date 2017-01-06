@@ -44,12 +44,9 @@ export class DetailsMiembroComponent implements OnInit {
 
     modMiembro(miembro : Miembros, key : string){
       this.edit = !this.edit;
-      // if(!this.edit){
-      //   console.log("modificado");
-      // console.log(miembro);
-        console.log("mod");
+      if(!this.edit){
         this._authService.updateItem(miembro,key);
-      // }
+      }
     }
     
 }
