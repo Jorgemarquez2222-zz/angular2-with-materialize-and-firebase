@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceHolderService } from '../services/place-holder.service';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 import { SpinnerService } from '../services/spinner.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';

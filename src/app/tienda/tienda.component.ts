@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
-import { Product } from '../interfaceProduct';
+import { Product } from '../interfaces/interfaceProduct';
 import {CartService} from '../services/cart.service';
-import {ProductCart} from '../interfaceProductCart';
+import {ProductCart} from '../interfaces/interfaceProductCart';
 
 @Component({
   selector: 'app-tienda',

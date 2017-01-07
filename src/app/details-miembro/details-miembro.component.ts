@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FirebaseDataService } from '../services/firebase-data.service';
 
 @Component({
   selector: 'app-details-miembro',
@@ -14,6 +15,7 @@ export class DetailsMiembroComponent implements OnInit {
 
   constructor(private _route:ActivatedRoute, 
       private _authService: AuthService,
+      private _firebaseDataService : FirebaseDataService,
   ) { }
 
   idMiembro:string;
@@ -30,7 +32,7 @@ export class DetailsMiembroComponent implements OnInit {
 
     getMiembro(id:string){
       let miembro: Miembros;
-      this._authService.getMiembros().subscribe(
+      this._firebaseDataService.getMiembros().subscribe(
         res => 
         {
           res.forEach(element => {
@@ -45,7 +47,7 @@ export class DetailsMiembroComponent implements OnInit {
     modMiembro(miembro : Miembros, key : string){
       this.edit = !this.edit;
       if(!this.edit){
-        this._authService.updateItem(miembro,key);
+        this._firebaseDataService.updateItem(miembro,key);
       }
     }
     

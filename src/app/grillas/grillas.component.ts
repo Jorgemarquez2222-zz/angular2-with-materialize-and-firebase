@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 import { ServicelocalService } from '../services/servicelocal.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';

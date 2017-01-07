@@ -1,10 +1,12 @@
 import { Component, OnInit,EventEmitter, } from '@angular/core';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 import { ServicelocalService } from '../services/servicelocal.service';
 import { MaterializeAction } from 'angular2-materialize';
 import { AuthService } from '../services/auth.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FirebaseDataService } from '../services/firebase-data.service';
+
 @Component({
   selector: 'app-imagenes',
   templateUrl: './imagenes.component.html',
@@ -20,6 +22,7 @@ export class ImagenesComponent {
   constructor(
     private _servicioLocal: ServicelocalService,
     private _authService: AuthService,
+    private _firebaseDataService : FirebaseDataService,
     public af: AngularFire,
     private router:Router
     ) { 
@@ -27,7 +30,7 @@ export class ImagenesComponent {
         if(!user) {
           this.router.navigate(['/']);
         }else{
-           this._authService.getMiembros().subscribe(
+           this._firebaseDataService.getMiembros().subscribe(
             res => this.miembros = res // console.log(res)
             );
         }
@@ -51,18 +54,18 @@ export class ImagenesComponent {
   }
   
   delMiembroArray(miembro : string){
-    this._authService.deleteItem(miembro);
+    this._firebaseDataService.deleteItem(miembro);
   }
 
   addMiembro(id:string,title:string,body:string,background:string,imgPerfil:string){
-     this._authService.addItem(id,title,body,background,imgPerfil);
+     this._firebaseDataService.addItem(id,title,body,background,imgPerfil);
   }
 
   modMiembro(miembro : Miembros, key:string){
      
     if(this.idMod != "-1"){
       this.idMod = "-1";
-      this._authService.updateItem(miembro,key);
+      this._firebaseDataService.updateItem(miembro,key);
     } else{
       this.idMod = key;
     }
