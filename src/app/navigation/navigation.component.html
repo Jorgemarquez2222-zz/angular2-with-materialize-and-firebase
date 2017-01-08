@@ -11,11 +11,33 @@
       </ul> 
     
       <ul class="right hide-on-med-and-down">
+          <li>
+          <a class="waves-effect" routerLink="/inicio" class="alinear" ><i class="material-icons">location_on</i>Inicio</a>
+          </li>
+          <li>
+          <a class="waves-effect" routerLink="/grillas" class="alinear" ><i class="material-icons">settings_input_hdmi</i>Data local</a>
+          </li>        
+          <li>
+          <a class="waves-effect" routerLink="/imagenes" class="alinear" ><i class="material-icons">dns</i>Firebase</a>
+          </li>        
+          <li>
+          <a class="waves-effect" routerLink="/mostrar2" class="alinear"><i class="material-icons">play_for_work</i>Scroll infinito</a>
+          </li>        
+          <li>
+          <a class="waves-effect" routerLink="/pagination" class="alinear" ><i class="material-icons">repeat</i>Paginacion</a>
+          </li>
+          <!--<li>
+          <a class="waves-effect" routerLink="/formularios" class="alinear" >Formularios</a>
+          </li>-->
+          <li>
+          <a class="waves-effect" routerLink="/tienda" class="alinear"><i class="material-icons">store</i>Tienda</a>
+          </li>
           <li  
             (mouseover)="mouseover()" 
             (mouseleave)="mouseleave()" 
+            
             >
-            <div style=" display: inline-flex;">
+            <div  class="alinear">
               <i   class="material-icons">shopping_cart</i>
                <span>{{details.items}} </span>
             </div>
@@ -25,30 +47,8 @@
               </li>
             </ul>
             </li>
-
           <li>
-          <a class="waves-effect" routerLink="/inicio" >Inicio</a>
-          </li>
-          <li>
-          <a class="waves-effect" routerLink="/grillas" >Grillas</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/imagenes" >Imagenes</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/mostrar2" >Mostrar2</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/pagination" >Pagination</a>
-          </li>
-          <li>
-          <a class="waves-effect" routerLink="/formularios" >Formularios</a>
-          </li>
-          <li>
-          <a class="waves-effect" routerLink="/tienda" >Tienda</a>
-          </li>
-            <li>
-          <a class="waves-effect" (click)="login2()" >{{login}}</a>
+          <a class="waves-effect" (click)="login2()" class="alinear" ><i class="material-icons">lock</i>{{login}}</a>
           </li>
       </ul>
            
@@ -81,27 +81,29 @@
               <!--<li><a class="subheader">Subheader</a></li>-->
 
               <li>
-              <a  class="waves-effect" routerLink="/inicio" >Inicio</a>
+              <a class="waves-effect" routerLink="/inicio" ><i class="material-icons">location_on</i>Inicio</a>
               </li>
               <li>
-              <a  class="waves-effect" routerLink="/grillas" >Grillas</a>
+              <a class="waves-effect" routerLink="/grillas" ><i class="material-icons">settings_input_hdmi</i>Data local</a>
               </li>        
               <li>
-              <a  class="waves-effect" routerLink="/imagenes" >Imagenes</a>
+              <a class="waves-effect" routerLink="/imagenes" ><i class="material-icons">dns</i>Firebase</a>
               </li>        
               <li>
-              <a  class="waves-effect" routerLink="/mostrar2" >Mostrar2</a>
+              <a class="waves-effect" routerLink="/mostrar2"><i class="material-icons">play_for_work</i>Scroll infinito</a>
               </li>        
               <li>
-              <a  class="waves-effect" routerLink="/pagination" >Pagination</a>
+              <a class="waves-effect" routerLink="/pagination" ><i class="material-icons">repeat</i>Paginación</a>
               </li>
-              <li>
+              <!--<li>
               <a class="waves-effect" routerLink="/formularios" >Formularios</a>
-              </li>
+              </li>-->
               <li>
-              <a class="waves-effect" (click)="login2()" >{{login}}</a>
+              <a class="waves-effect" routerLink="/tienda"><i class="material-icons">store</i>Tienda</a>
               </li>
-
+                <li>
+              <a class="waves-effect" (click)="login2()" ><i class="material-icons">lock</i>{{login}}</a>
+              </li>
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons">menu</i></a>
 </nav>

@@ -1,5 +1,12 @@
 .liCart{
-    position: absolute; 
-    /*margin-left: -185px; */
+    position: absolute;
+    margin-left: -200px;
     z-index: 99999;
+    margin-right: 7px;
+    float: right;
+    width: auto;
+    min-width: 250px;
+}
+.alinear{
+ display: inline-flex;
 }
