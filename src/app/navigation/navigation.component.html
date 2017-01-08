@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed hide-on-med-and-down">
   <nav>
     <div class="nav-wrapper  purple lighten-1 z-depth-3">
       <ul>
@@ -15,7 +15,7 @@
             (mouseover)="mouseover()" 
             (mouseleave)="mouseleave()" 
             >
-            <div style="cursor: pointer; display: inline-flex;">
+            <div style=" display: inline-flex;">
               <i   class="material-icons">shopping_cart</i>
                <span>{{details.items}} </span>
             </div>
@@ -50,12 +50,23 @@
             <li>
           <a class="waves-effect" (click)="login2()" >{{login}}</a>
           </li>
-            
-            
-            
       </ul>
-            
-      <ul id="slide-out" class="side-nav">
+           
+    </div>
+  </nav>
+</div>
+
+<nav class="hide-on-large-only purple lighten-1 z-depth-3">
+    <ul>
+       <li  class=" brand-logo ">
+         <h6 class="valign-wrapper"> 
+           <img *ngIf="user.auth?.photoURL" class=" circle" width="50" height="50" src="{{ user.auth?.photoURL }}" > 
+           {{ (user.auth)?.displayName }}
+         </h6>
+       </li>
+      </ul> 
+  
+     <ul id="slide-out" class="side-nav  ">
           <li><div class="userView">
             <div class="background">
               <img src="assets/office.jpg">
@@ -95,9 +106,5 @@
               </li>
 
       </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-        
-    </div>
-    
-  </nav>
-</div>
+      <a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons">menu</i></a>
+</nav>

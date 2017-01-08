@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Miembros } from '../interfaceMiembros';
 
 @Injectable()
 export class AuthService {
@@ -16,7 +15,7 @@ export class AuthService {
           // user logged in
           this.user = user;
           this.logeado = true;
-          this.router.navigate(['imagenes']);
+          this.router.navigate(['mostrar']);
         }
         else {
           // user not logged in
