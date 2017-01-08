@@ -10,7 +10,20 @@
       </ul> 
     
       <ul class="right hide-on-med-and-down">
-        
+          <li  
+            (mouseover)="mouseover()" 
+            (mouseleave)="mouseleave()" 
+            >
+            <div style="cursor: pointer; display: inline-flex;">
+              <i   class="material-icons">shopping_cart</i>
+               {{details.items}}
+            </div>
+            <ul>
+              <li class="liCart" >
+                <cart *ngIf="ver"></cart>
+              </li>
+            </ul>
+            </li>
           <li>
           <!--<a class="waves-effect" routerLink="/"  routerLinkActive="active">About<span class="new badge">4</span></a>-->
           </li>
@@ -35,10 +48,12 @@
           <li>
           <a class="waves-effect" routerLink="/tienda" >Tienda</a>
           </li>
-          <li>
+            <li>
           <a class="waves-effect" (click)="login2()" >{{login}}</a>
           </li>
-
+            
+            
+            
       </ul>
             
       <ul id="slide-out" class="side-nav">

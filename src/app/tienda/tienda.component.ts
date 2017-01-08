@@ -13,6 +13,8 @@ import {ProductCart} from '../interfaces/interfaceProductCart';
 export class TiendaComponent implements OnInit {
 
   products : Product;
+  details : any;
+  ver : boolean = false;
 
   constructor( private _serviceProducts : ProductsService,
   private _cartService : CartService
@@ -21,6 +23,7 @@ export class TiendaComponent implements OnInit {
       .subscribe(
         res => this.products = res 
       );
+       this.details = this._cartService.getDetails();
     }
 
   ngOnInit() {
@@ -30,4 +33,5 @@ export class TiendaComponent implements OnInit {
     this._cartService.addToCart(product);
   }
 
+  
 }
