@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PlaceHolderService } from './services/place-holder.service';
 import { MostrarComponent } from './mostrar/mostrar.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AboutComponent } from './about/about.component';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { SpinnerService } from './services/spinner.service';
@@ -59,7 +58,6 @@ export const firebaseConfig = {
     AppComponent,
     MostrarComponent,
     NavigationComponent,
-    AboutComponent,
     SpinnerComponent,
     GrillasComponent,
     ImagenesComponent,
