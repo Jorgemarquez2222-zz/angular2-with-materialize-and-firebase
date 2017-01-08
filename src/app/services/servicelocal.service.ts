@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 import {Http, Headers} from '@angular/http';
 
 @Injectable()

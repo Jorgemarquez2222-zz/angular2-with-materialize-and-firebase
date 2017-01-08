@@ -4,7 +4,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PlaceHolderService } from './services/place-holder.service';
-import { MostrarComponent } from './mostrar/mostrar.component';
+import { InicioComponent } from './inicio/inicio.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -31,7 +31,7 @@ import { FirebaseDataService } from './services/firebase-data.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'mostrar', component: MostrarComponent },
+  { path: 'inicio', component: InicioComponent },
   { path: 'grillas', component: GrillasComponent },
   { path: 'imagenes', component: ImagenesComponent },
   { path: 'mostrar2', component: Mostrar2Component },
@@ -56,7 +56,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MostrarComponent,
+    InicioComponent,
     NavigationComponent,
     SpinnerComponent,
     GrillasComponent,

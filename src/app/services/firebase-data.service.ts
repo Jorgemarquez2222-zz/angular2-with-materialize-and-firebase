@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
-import { Miembros } from '../interfaceMiembros';
+import { Miembros } from '../interfaces/interfaceMiembros';
 
 
 @Injectable()

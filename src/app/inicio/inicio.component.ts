@@ -7,11 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 declare var jQuery:any;
 
 @Component({
-  selector: 'app-mostrar',
-  templateUrl: './mostrar.component.html',
-  styleUrls: ['./mostrar.component.css']
+  selector: 'app-inicio',
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.css']
 })
-export class MostrarComponent implements OnInit {
+export class InicioComponent implements OnInit {
 
   miembros: Miembros[] = [];
   posicion : number =0;

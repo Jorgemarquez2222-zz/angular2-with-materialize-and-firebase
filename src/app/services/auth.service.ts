@@ -15,7 +15,7 @@ export class AuthService {
           // user logged in
           this.user = user;
           this.logeado = true;
-          this.router.navigate(['mostrar']);
+          this.router.navigate(['inicio']);
         }
         else {
           // user not logged in
