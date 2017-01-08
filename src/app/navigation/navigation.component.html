@@ -1,5 +1,6 @@
+<div class="navbar-fixed">
   <nav>
-    <div class="nav-wrapper purple lighten-1 z-depth-3">
+    <div class="nav-wrapper  purple lighten-1 z-depth-3">
       <ul>
        <li  class=" brand-logo ">
          <h6 class="valign-wrapper"> 
@@ -16,7 +17,7 @@
             >
             <div style="cursor: pointer; display: inline-flex;">
               <i   class="material-icons">shopping_cart</i>
-               {{details.items}}
+               <span>{{details.items}} </span>
             </div>
             <ul>
               <li class="liCart" >
@@ -24,9 +25,7 @@
               </li>
             </ul>
             </li>
-          <li>
-          <!--<a class="waves-effect" routerLink="/"  routerLinkActive="active">About<span class="new badge">4</span></a>-->
-          </li>
+
           <li>
           <a class="waves-effect" routerLink="/mostrar" >Mostrar</a>
           </li>
@@ -101,5 +100,4 @@
     </div>
     
   </nav>
-  <br>
-  
+</div>

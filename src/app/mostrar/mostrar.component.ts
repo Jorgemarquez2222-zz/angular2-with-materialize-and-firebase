@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { PlaceHolderService } from '../services/place-holder.service';
 import { Miembros } from '../interfaces/interfaceMiembros';
 import { SpinnerService } from '../services/spinner.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
+declare var jQuery:any;
 
 @Component({
   selector: 'app-mostrar',
@@ -20,7 +21,8 @@ export class MostrarComponent implements OnInit {
       private _servicio : PlaceHolderService,
       public _spinner: SpinnerService,
       public af: AngularFire,
-      private router:Router
+      private router:Router,
+      private _elRef: ElementRef,
    ) {
      this.af.auth.subscribe(user => {
         if(!user) {
@@ -28,24 +30,23 @@ export class MostrarComponent implements OnInit {
         }
       });
    }
-
+/**
+ *  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+ */
  ngOnInit(){
+ 
+     jQuery(this._elRef.nativeElement).find('.parallax').parallax();
+    
    
-     this._spinner.start();
+//     this._spinner.start();
 
-     this._servicio.getCards()
-     .subscribe(
-       res =>{ 
-         console.log(res);
-         //this.miembros = res
-           this._spinner.stop();
-         }
-     );
   }
 
 
   ngOnDestroy(){
-    this._spinner.stop();
+  //  this._spinner.stop();
   }
 
 }

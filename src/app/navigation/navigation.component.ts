@@ -36,8 +36,8 @@ user = {};
    }
 
   ngOnInit(){
-    let a = jQuery(this._elRef.nativeElement).find('.button-collapse');
-    a.sideNav();
+     jQuery(this._elRef.nativeElement).find('.button-collapse').sideNav();
+    
   }
 
   login2(){
