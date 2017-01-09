@@ -6,13 +6,15 @@ import { AuthService } from '../services/auth.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseDataService } from '../services/firebase-data.service';
+import { SpinnerService } from '../services/spinner.service';
+
 
 @Component({
-  selector: 'app-imagenes',
-  templateUrl: './imagenes.component.html',
-  styleUrls: ['./imagenes.component.css']
+  selector: 'app-firebase',
+  templateUrl: './firebase.component.html',
+  styleUrls: ['./firebase.component.css']
 })
-export class ImagenesComponent {
+export class FirebaseComponent implements OnInit{
 
   modificaMiembro: boolean= false;
   idMod: string = "-1";
@@ -22,16 +24,22 @@ export class ImagenesComponent {
   constructor(
     private _servicioLocal: ServicelocalService,
     private _authService: AuthService,
+    public _spinner: SpinnerService,
     private _firebaseDataService : FirebaseDataService,
     public af: AngularFire,
     private router:Router
-    ) { 
-        this.af.auth.subscribe(user => {
+    ) { }
+
+  getFirebaseData(){
+    this.af.auth.subscribe(user => {
         if(!user) {
           this.router.navigate(['/']);
         }else{
            this._firebaseDataService.getMiembros().subscribe(
-            res => this.miembros = res // console.log(res)
+            res => {
+              this.miembros = res;
+              this._spinner.stop();
+              }
             );
         }
       });
@@ -39,7 +47,13 @@ export class ImagenesComponent {
 
   modalActions = new EventEmitter<string|MaterializeAction>();
   globalActions = new EventEmitter<string|MaterializeAction>();
-  params = []
+  params = [];
+
+  ngOnInit(){
+    this._spinner.start();
+    this.getFirebaseData();
+  }
+
   printSomething() {
     console.log("tooltip button clicked!");
   }

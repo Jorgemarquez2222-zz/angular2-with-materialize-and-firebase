@@ -9,9 +9,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { SpinnerService } from './services/spinner.service';
-import { GrillasComponent } from './grillas/grillas.component';
-import { ImagenesComponent } from './imagenes/imagenes.component';
-import { Mostrar2Component } from './mostrar2/mostrar2.component';
+import { DataLocalComponent } from './data-local/data-local.component';
+import { FirebaseComponent } from './firebase/firebase.component';
+import { ScrollInfinitoComponent } from './scroll-infinito/scroll-infinito.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { FooterComponent } from './footer/footer.component';
@@ -32,9 +32,9 @@ import { FirebaseDataService } from './services/firebase-data.service';
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'inicio', component: InicioComponent },
-  { path: 'grillas', component: GrillasComponent },
-  { path: 'imagenes', component: ImagenesComponent },
-  { path: 'mostrar2', component: Mostrar2Component },
+  { path: 'data-local', component: DataLocalComponent },
+  { path: 'firebase', component: FirebaseComponent },
+  { path: 'scroll-infinito', component: ScrollInfinitoComponent },
   { path: 'pagination', component: PaginationComponent },
   { path: 'formularios', component: FormulariosComponent },
    { path: 'tienda', component: TiendaComponent },
@@ -59,9 +59,9 @@ export const firebaseConfig = {
     InicioComponent,
     NavigationComponent,
     SpinnerComponent,
-    GrillasComponent,
-    ImagenesComponent,
-    Mostrar2Component,
+    DataLocalComponent,
+    FirebaseComponent,
+    ScrollInfinitoComponent,
     PaginationComponent,
     FooterComponent,
     FormulariosComponent,

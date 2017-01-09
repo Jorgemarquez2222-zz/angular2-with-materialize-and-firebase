@@ -6,11 +6,11 @@ import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProvi
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-mostrar2',
-  templateUrl: './mostrar2.component.html',
-  styleUrls: ['./mostrar2.component.css']
+  selector: 'app-scroll-infinito',
+  templateUrl: './scroll-infinito.component.html',
+  styleUrls: ['./scroll-infinito.component.css']
 })
-export class Mostrar2Component  implements OnInit{
+export class ScrollInfinitoComponent  implements OnInit{
 
   miembros: Miembros[];
   start: number = 0;

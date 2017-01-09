@@ -4,6 +4,7 @@
         <input (keyup)="searchMiembro()" [(ngModel)]="searchSrt" type="text" class="validate">
         <label for="Search">Search</label>
       </div>
+      <app-spinner></app-spinner>
     <div *ngFor="let miembro of miembros | paginate: { itemsPerPage: 4, currentPage: p }">
         <div class="row col s12 m6 " >
             <div class="card-panel hoverable {{miembro.colorFondo}} lighten-1 z-depth-5 ">
