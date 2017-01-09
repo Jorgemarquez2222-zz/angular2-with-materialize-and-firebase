@@ -7,7 +7,7 @@
 }
   body {
     display: flex;
-    min-height: 53vh;
+    min-height: 60vh;
     flex-direction: column;
   }
 

@@ -1,9 +1,10 @@
-import { Component,ElementRef, OnInit } from '@angular/core';
+import { Component,ElementRef, OnInit,EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import {CartService} from '../services/cart.service';
-
+import { MaterializeModule } from 'angular2-materialize';
 declare var jQuery:any;
+declare var Materialize:any;
 
 @Component({
   selector: 'app-navigation',
@@ -14,6 +15,7 @@ export class NavigationComponent implements OnInit  {
 
 details : any;
 ver : boolean = false;
+log: boolean = false;
 login : string= "Login";
 user = {};
   constructor(public _authService: AuthService,  private router:Router,private _elRef: ElementRef,
@@ -24,11 +26,13 @@ user = {};
         if(user) {
           // user logged in
           this.login = 'Logout';
+          this.log = true; 
           this.user = user;
         }
         else {
            // user not logged in
           this.login = "Log in";
+          this.log = false;
           this.user = {};
         }
       });
@@ -63,7 +67,13 @@ user = {};
   }
   mouseleave(){
     this.ver = false;
+    
   }
   
+  triggerToast() {
+    if(!this.log){
+       Materialize.toast('Tienes que estar logueado!', 4000);
+    }
+  }
   
 }
