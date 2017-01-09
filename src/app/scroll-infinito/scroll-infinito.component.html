@@ -9,7 +9,7 @@
             <h5 class="header">Horizontal Card</h5>
             <div class="card horizontal">
               <div class="card-image">
-                <img src="http://lorempixel.com/100/190/nature/6">
+                <img src="http://lorempixel.com/100/190/nature/">
               </div>
               <div class="card-stacked">
                 <div class="card-content">
@@ -24,15 +24,13 @@
     </div>
     
   </div>
+  <div class="row col s12">
+    <div *ngIf="no_results center" >
+      <h5 class="cardd card-panel  center hoverable  lighten-1 z-depth-1">No se encontraron mas resultados</h5>
+    </div>
+  </div>
+
 </div>
-
- <!--<div class="search-results"
-            infinite-scroll
-            [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="500"
-            (scrolled)="onScroll()">
-        </div>-->
-
 
         <div class="search-results"
             infinite-scroll

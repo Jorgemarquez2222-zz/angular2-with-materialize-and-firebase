@@ -4,6 +4,7 @@ import { Miembros } from '../interfaces/interfaceMiembros';
 import { SpinnerService } from '../services/spinner.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
 import { Router, ActivatedRoute } from '@angular/router';
+declare var Materialize:any;
 
 @Component({
   selector: 'app-scroll-infinito',
@@ -15,6 +16,7 @@ export class ScrollInfinitoComponent  implements OnInit{
   miembros: Miembros[] = []; 
   start: number = 0;
   end: number = 6;
+  no_results : boolean = false;
 
   constructor(
     private _servicio : PlaceHolderService, 
@@ -35,12 +37,15 @@ export class ScrollInfinitoComponent  implements OnInit{
       
         this._servicio.getCardsScroll(this.start,this.end).subscribe(
           tarjeta => { 
-            console.log(tarjeta);
+           // console.log(tarjeta);
+          if(tarjeta.length > 0){
             tarjeta.forEach(element => {
-              if(tarjeta.length > 0){
                 this.miembros.push(element);
-              }
             });
+          }else{
+            this.no_results = true;
+          }
+            
           this._spinner.stop();
           });
     }
