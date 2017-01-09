@@ -45,54 +45,39 @@
 </div>
 
 <div class="fixed-action-btn vertical">
-    <a class="btn-floating btn-large red">Opt</a>
+    <a class="btn-floating btn-large red"><i class="material-icons">mode_edit</i></a>
     <ul>
-      <li><a class="btn-floating green darken-1 "(click)="openModal()" >+</a></li>
+      <li><a class="btn-floating green darken-1 "(click)="openModal()" ><i class="material-icons">add</i></a></li>
     </ul>
 </div>
 
-  <!-- Modal Trigger -->
-  <!--<a class="waves-effect waves-light btn" href="#modal1">Modal</a>-->
-
-  <!-- Modal Structure -->
-  <!--<div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>-->
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal " materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
     <div class="modal-content">
-      <h4>Modal Header</h4>
+      <h4>Agregar Tarjeta</h4>
       
         <form materialize class="col s12">
           <div class="row">
-            <div class="input-field col s6">
+            <!--<div class="input-field col s6">
               <input #id type="text" class="validate">
               <label for="id">Id</label>
-            </div>
-            <div class="input-field col s6">
+            </div>-->
+            <div class="input-field col s12">
               <input #title type="text" class="validate">
-              <label for="title">Title</label>
+              <label for="title">Titulo</label>
             </div>
-          </div>
-          <div class="row">
         <div class="input-field col s12">
           <textarea #body class="materialize-textarea"></textarea>
-          <label for="body">Body</label>
+          <label for="body">Cuerpo</label>
         </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12">
               <input #background type="text" class="validate">
-              <label for="Background">Background</label>
+              <label for="Background">Color : ejemplo (red, blue, orange)</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12">
               <input #imgPerfil type="text" class="validate">
-              <label for="imgPerfil">imgPerfil</label>
+              <label for="imgPerfil">Numero de la imagen de 1 - 30</label>
             </div>
           </div>
         </form>
@@ -101,7 +86,7 @@
     <div class="modal-footer">
       <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
       <a class="modal-action modal-close waves-effect waves-green btn-flat" 
-      (click)="addMiembro(id.value,title.value,body.value,background.value,imgPerfil.value)">Agree</a>
+      (click)="addMiembro(title.value,body.value,background.value,imgPerfil.value)">Agree</a>
     </div>
   </div>
 

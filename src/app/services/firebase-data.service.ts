@@ -16,12 +16,12 @@ items: FirebaseListObservable<any>;
       ) ;
     }
 
-    addItem(id:string,title:string,body:string,background:string,imgPerfil:string) {
-      this.items.push({id:id,title:title,body:body,colorFondo:background,imgPerfil:imgPerfil});
+    addItem(title:string,body:string,background:string,imgPerfil:string) {
+      this.items.push({title:title,body:body,colorFondo:background,imgPerfil:imgPerfil});
     }
 
     updateItem(miembro: Miembros, key: string) {
-      this.items.update(key, {colorFondo: miembro.colorFondo, id:miembro.id, title: miembro.title,body:miembro.body,  imgPerfil: miembro.imgPerfil });
+      this.items.update(key, {colorFondo: miembro.colorFondo, title: miembro.title,body:miembro.body,  imgPerfil: miembro.imgPerfil });
     }
     
     deleteItem(key: string) {    

@@ -13,6 +13,7 @@ declare var jQuery:any;
   templateUrl: './firebase.component.html',
   styleUrls: ['./firebase.component.css']
 })
+
 export class FirebaseComponent implements OnInit{
 
   modificaMiembro: boolean= false;
@@ -87,8 +88,8 @@ export class FirebaseComponent implements OnInit{
     this._firebaseDataService.deleteItem(miembro);
   }
 
-  addMiembro(id:string,title:string,body:string,background:string,imgPerfil:string){
-     this._firebaseDataService.addItem(id,title,body,background,imgPerfil);
+  addMiembro(title:string,body:string,background:string,imgPerfil:string){
+     this._firebaseDataService.addItem(title,body,background,imgPerfil);
   }
 
   modMiembro(miembro : Miembros, key:string){
@@ -102,7 +103,7 @@ export class FirebaseComponent implements OnInit{
   }
 
   searchMiembro(){
-    if( this.miembros = this.searchSrt(this.portion)){}
+    if(this.miembros = this.searchSrt(this.portion)){}
   }
 
    
@@ -114,8 +115,8 @@ export class FirebaseComponent implements OnInit{
     if(element.body.toUpperCase().match(srt.toUpperCase())!= null){
       miembrReplace.push(element);
     }
-  });
-  return  miembrReplace;
+    });
+    return  miembrReplace;
   }
    
 }
