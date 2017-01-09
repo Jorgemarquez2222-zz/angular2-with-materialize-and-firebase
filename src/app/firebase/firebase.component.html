@@ -7,7 +7,7 @@
       <app-spinner></app-spinner>
     <div *ngFor="let miembro of miembros | paginate: { itemsPerPage: 4, currentPage: p }">
         <div class="row col s12 m6 " >
-            <div class="card-panel hoverable {{miembro.colorFondo}} lighten-1 z-depth-5 ">
+            <div class="card-panel hoverable {{miembro.colorFondo}} lighten-1 z-depth-2 ">
               <div class="row valign-wrapper">
                 <div class="col s3 m2">
                 <a routerLink="/detailsMiembro/{{miembro.$key}}">                
@@ -51,8 +51,22 @@
     </ul>
 </div>
 
+  <!-- Modal Trigger -->
+  <!--<a class="waves-effect waves-light btn" href="#modal1">Modal</a>-->
+
   <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <!--<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>-->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal " materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
     <div class="modal-content">
       <h4>Modal Header</h4>
       

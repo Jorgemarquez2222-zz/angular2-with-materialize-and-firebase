@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, } from '@angular/core';
+import { Component, OnInit,EventEmitter, ElementRef} from '@angular/core';
 import { Miembros } from '../interfaces/interfaceMiembros';
 import { ServicelocalService } from '../services/servicelocal.service';
 import { MaterializeAction } from 'angular2-materialize';
@@ -7,7 +7,7 @@ import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProvi
 import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseDataService } from '../services/firebase-data.service';
 import { SpinnerService } from '../services/spinner.service';
-
+declare var jQuery:any;
 
 @Component({
   selector: 'app-firebase',
@@ -27,7 +27,8 @@ export class FirebaseComponent implements OnInit{
     public _spinner: SpinnerService,
     private _firebaseDataService : FirebaseDataService,
     public af: AngularFire,
-    private router:Router
+    private router:Router,
+    private _elRef: ElementRef
     ) { }
 
   getFirebaseData(){
@@ -50,6 +51,21 @@ export class FirebaseComponent implements OnInit{
   params = [];
 
   ngOnInit(){
+    jQuery(this._elRef.nativeElement).find('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      starting_top: '4%', // Starting top style attribute
+      ending_top: '10%', // Ending top style attribute
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        alert("Ready");
+        console.log(modal, trigger);
+      },
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
+  
     this._spinner.start();
     this.getFirebaseData();
   }
