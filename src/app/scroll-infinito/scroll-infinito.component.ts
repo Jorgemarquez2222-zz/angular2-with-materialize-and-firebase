@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ScrollInfinitoComponent  implements OnInit{
 
-  miembros: Miembros[];
+  miembros: Miembros[] = []; 
   start: number = 0;
   end: number = 6;
 
