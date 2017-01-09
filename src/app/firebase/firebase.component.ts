@@ -1,6 +1,5 @@
 import { Component, OnInit,EventEmitter, ElementRef} from '@angular/core';
 import { Miembros } from '../interfaces/interfaceMiembros';
-import { ServicelocalService } from '../services/servicelocal.service';
 import { MaterializeAction } from 'angular2-materialize';
 import { AuthService } from '../services/auth.service';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable,AuthProviders, AuthMethods } from 'angularfire2';
@@ -19,10 +18,9 @@ export class FirebaseComponent implements OnInit{
   modificaMiembro: boolean= false;
   idMod: string = "-1";
   miembros: Miembros[];
-  searchSrt: string= "";
+  portion: string= "";
 
   constructor(
-    private _servicioLocal: ServicelocalService,
     private _authService: AuthService,
     public _spinner: SpinnerService,
     private _firebaseDataService : FirebaseDataService,
@@ -50,7 +48,7 @@ export class FirebaseComponent implements OnInit{
   globalActions = new EventEmitter<string|MaterializeAction>();
   params = [];
 
-  ngOnInit(){
+  initModal(){
     jQuery(this._elRef.nativeElement).find('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: .5, // Opacity of modal background
@@ -63,9 +61,11 @@ export class FirebaseComponent implements OnInit{
         console.log(modal, trigger);
       },
       complete: function() { alert('Closed'); } // Callback for Modal close
-    }
-  );
-  
+    });
+  }
+
+  ngOnInit(){
+    this.initModal();
     this._spinner.start();
     this.getFirebaseData();
   }
@@ -102,7 +102,20 @@ export class FirebaseComponent implements OnInit{
   }
 
   searchMiembro(){
-    this.miembros =this._servicioLocal.searchSrt(this.searchSrt);
+    if( this.miembros = this.searchSrt(this.portion)){}
   }
 
+   
+  searchSrt(srt : string){
+    this.getFirebaseData()
+    let miembrReplace : Miembros[] = [];
+
+    this.miembros.forEach(element => {
+    if(element.body.toUpperCase().match(srt.toUpperCase())!= null){
+      miembrReplace.push(element);
+    }
+  });
+  return  miembrReplace;
+  }
+   
 }
