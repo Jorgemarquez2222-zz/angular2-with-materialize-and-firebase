@@ -3,6 +3,7 @@ import { ProductsService } from '../services/products.service';
 import { Product } from '../interfaces/interfaceProduct';
 import {CartService} from '../services/cart.service';
 import {ProductCart} from '../interfaces/interfaceProductCart';
+import {SpinnerService} from '../services/spinner.service';
 
 @Component({
   selector: 'app-tienda',
@@ -17,16 +18,26 @@ export class TiendaComponent implements OnInit {
   ver : boolean = false;
 
   constructor( private _serviceProducts : ProductsService,
-  private _cartService : CartService
-   ) { 
-     this._serviceProducts.getProducts()
-      .subscribe(
-        res => this.products = res 
-      );
-       this.details = this._cartService.getDetails();
-    }
+  private _cartService : CartService,
+  private _spinner : SpinnerService
+   ) {}
+
+  getData(){
+
+    this._serviceProducts.getProducts()
+    .subscribe(
+      res => {
+        this.products = res ;
+        this._spinner.stop();
+        }
+    );
+      this.details = this._cartService.getDetails();
+    
+  }
 
   ngOnInit() {
+    this._spinner.start();
+    this.getData();
   }
   
   addProduct( product : ProductCart){
