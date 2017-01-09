@@ -1,72 +1,6 @@
-<div class="navbar-fixed hide-on-med-and-down">
-  <nav>
-    <div class="nav-wrapper  purple lighten-1 z-depth-3">
-      <ul>
-       <li  class=" brand-logo ">
-         <h6 class="valign-wrapper"> 
-           <img *ngIf="user.auth?.photoURL" class=" circle" width="50" height="50" src="{{ user.auth?.photoURL }}" > 
-           {{ (user.auth)?.displayName }}
-         </h6>
-       </li>
-      </ul> 
-    
-      <ul class="right hide-on-med-and-down">
-          <li>
-          <a class="waves-effect" routerLink="/inicio" class="alinear" ><i class="material-icons">home</i>Inicio</a>
-          </li>
-          <li>
-          <a class="waves-effect" routerLink="/grillas" class="alinear" ><i class="material-icons">settings_input_hdmi</i>Data local</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/imagenes" class="alinear" ><i class="material-icons">cloud_done</i>Firebase</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/mostrar2" class="alinear"><i class="material-icons">play_for_work</i>Scroll infinito</a>
-          </li>        
-          <li>
-          <a class="waves-effect" routerLink="/pagination" class="alinear" ><i class="material-icons">repeat</i>Paginacion</a>
-          </li>
-          <!--<li>
-          <a class="waves-effect" routerLink="/formularios" class="alinear" >Formularios</a>
-          </li>-->
-          <li>
-          <a class="waves-effect" routerLink="/tienda" class="alinear"><i class="material-icons">store</i>Tienda</a>
-          </li>
-          <li  
-            (mouseover)="mouseover()" 
-            (mouseleave)="mouseleave()" 
-            
-            >
-            <div  class="alinear">
-              <i   class="material-icons">shopping_cart</i>
-               <span>{{details.items}} </span>
-            </div>
-            <ul>
-              <li class="liCart" >
-                <cart *ngIf="ver"></cart>
-              </li>
-            </ul>
-            </li>
-          <li>
-          <a class="waves-effect" (click)="login2()" class="alinear" ><i class="material-icons">lock</i>{{login}}</a>
-          </li>
-      </ul>
-           
-    </div>
-  </nav>
-</div>
-
-<nav class="hide-on-large-only purple lighten-1 z-depth-3">
-    <ul>
-       <li  class=" brand-logo ">
-         <h6 class="valign-wrapper"> 
-           <img *ngIf="user.auth?.photoURL" class=" circle" width="50" height="50" src="{{ user.auth?.photoURL }}" > 
-           {{ (user.auth)?.displayName }}
-         </h6>
-       </li>
-      </ul> 
+<nav  class=" purple lighten-1 z-depth-3">
   
-     <ul id="slide-out" class="side-nav  ">
+     <ul  id="slide-out" class="side-nav target_slow">
           <li><div class="userView">
             <div class="background">
               <img src="assets/office.jpg">
@@ -79,7 +13,7 @@
               <li><a target="_blank" href="https://github.com/Jorgemarquez2222"><i class="material-icons">work</i>Mi GtiHub</a></li>
               <li><div class="divider"></div></li>
               <!--<li><a class="subheader">Subheader</a></li>-->
-
+              <div class="trans ">
               <li>
               <a class="waves-effect" routerLink="/inicio" ><i class="material-icons">home</i>Inicio</a>
               </li>
@@ -95,15 +29,45 @@
               <li>
               <a class="waves-effect" routerLink="/pagination" ><i class="material-icons">repeat</i>Paginación</a>
               </li>
-              <!--<li>
-              <a class="waves-effect" routerLink="/formularios" >Formularios</a>
-              </li>-->
               <li>
               <a class="waves-effect" routerLink="/tienda"><i class="material-icons">store</i>Tienda</a>
               </li>
                 <li>
               <a class="waves-effect" (click)="login2()" ><i class="material-icons">lock</i>{{login}}</a>
               </li>
+ 
+              </div>
+ 
       </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons">menu</i></a>
+ 
+      <a href="#" data-activates="slide-out" class="button-collapse3 "
+      onclick="Materialize.showStaggeredList('.target_slow')"
+      ><i class="padizq material-icons alinear">menu</i></a>
+
+      <li class="right alinear hide-on-med-and-down pad">
+        <a class="waves-effect alinear " (click)="login2()" ><i class="material-icons">lock</i>{{login}}</a>  
+      </li>
+      
+      <li class="right alinear hide-on-med-and-down pad" 
+          (mouseover)="mouseover()" 
+          (mouseleave)="mouseleave()">
+          <div  class="alinear">
+          <i class="material-icons">shopping_cart</i>
+            <span>{{details.items}} </span>
+          </div>
+            <ul>
+              <li class="liCart" >
+              <cart *ngIf="ver"></cart>
+              </li>
+            </ul>
+      </li>
+
+      <li class=" brand-logo center alinear">
+        <a routerLink="/inicio"> 
+        <h6 class=" alinear valign-wrapper right"> 
+          <img *ngIf="user.auth?.photoURL" class=" circle" width="50" height="50" src="{{ user.auth?.photoURL }}" > 
+          {{ (user.auth)?.displayName }}
+        </h6>
+        </a>
+      </li>
 </nav>
