@@ -50,7 +50,7 @@ user = {};
   }
 
   login2(){
- 
+    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
     this._authService.logeado ? 'Logout' : 'Login';
  
     if(this._authService.logeado){
