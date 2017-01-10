@@ -31,7 +31,7 @@
               <a class="waves-effect" routerLink="/pagination" (click)="triggerToast()" ><i class="material-icons">repeat</i>Paginación</a>
               </li>
               <li>
-              <a class="waves-effect" routerLink="/tienda"  ><i class="material-icons">store</i>Tienda</a>
+              <a class="waves-effect" routerLink="/tienda" (click)="qerror()" ><i class="material-icons">store</i>Tienda</a>
               </li>
                 <li>
               <a class="waves-effect" (click)="login2()" ><i class="material-icons">lock</i>{{login}}</a>
@@ -72,5 +72,4 @@
         </h6>
         </a>
       </li>
-     <!--<a class="btn" (click)="triggerToast()" materialize [materializeParams]="['Tiene que estar logueado',4000]" [materializeActions]="globalActions">Toast 2!</a>-->
 </nav>

@@ -59,7 +59,9 @@ user = {};
       this._authService.login2();
     }
   }
-
+  qerror(){
+     jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
+  }
   mouseover(){
     this.ver = true
   }

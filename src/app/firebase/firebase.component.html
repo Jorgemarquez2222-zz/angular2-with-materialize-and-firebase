@@ -8,28 +8,25 @@
     <div *ngFor="let miembro of miembros | paginate: { itemsPerPage: 4, currentPage: p }">
         <div class="row col s12 m6 " >
             <div class="card-panel hoverable {{miembro.colorFondo}} lighten-1 z-depth-2 ">
-              <div class="row valign-wrapper">
-                <div class="col s3 m2">
-                <a routerLink="/detailsMiembro/{{miembro.$key}}">                
-                  
-                  <img  src="assets/{{miembro.imgPerfil}}.png" alt="" class="circle responsive-img">
-                </a> 
-                  
-                </div>
-                <div *ngIf="miembro?.$key != idMod" class="col s9 m10" >
-                  <span class="black-text">
-                    <h5>{{miembro.title}}</h5>
-                  </span>
-                  <span class="black-text">
-                    {{miembro.body}}
-                  </span>
-
-                </div>
-                
-                <div *ngIf="miembro?.$key == idMod" class="col s9 m10">
+             
+              <div class="row valign-wrapper ">
+                 <a  routerLink="/detailsMiembro/{{miembro.$key}}">
+                    <div class="col s5 m3">
+                      <img  src="assets/{{miembro.imgPerfil}}.png" width="50" height="50" alt="" class="circle ">
+                    </div>
+                    <div *ngIf="miembro?.$key != idMod" class="col s9 m9" >
+                      <span class="black-text">
+                        <h5>{{miembro.title}}</h5>
+                      </span>
+                      <span class="black-text">
+                        {{miembro.body}}
+                      </span>
+                    </div>
+                   </a>
+                <div *ngIf="miembro?.$key == idMod" class="col s9 m9">
                   <label for="textarea1">Textarea</label>
                   <textarea [(ngModel)]="miembro.body" id="textarea1" class="materialize-textarea"></textarea>
-                </div>               
+                </div>    
               </div>
                
                 <a class="btn-floating btn-small waves-effect waves-light red right center" (click)="delMiembroArray(miembro?.$key)">x</a>
@@ -59,10 +56,6 @@
       
         <form materialize class="col s12">
           <div class="row">
-            <!--<div class="input-field col s6">
-              <input #id type="text" class="validate">
-              <label for="id">Id</label>
-            </div>-->
             <div class="input-field col s12">
               <input #title type="text" class="validate">
               <label for="title">Titulo</label>
@@ -91,7 +84,3 @@
   </div>
 
   <br/><br/>
-
-      <!-- toast -->
-      <!--<a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast 1!</a>
-      <a class="btn" (click)="triggerToast()" materialize [materializeParams]="['I am also a toast',4000]" [materializeActions]="globalActions">Toast 2!</a>-->
