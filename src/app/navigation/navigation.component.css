@@ -13,11 +13,13 @@
 }
 .trans>li{
     opacity: 0;
-
 }
 .pad{
     padding-right: 20px;
 }
 .padizq{
     padding-left: 8px;
+}
+#sidenav-overlay {
+    display: none;
 }

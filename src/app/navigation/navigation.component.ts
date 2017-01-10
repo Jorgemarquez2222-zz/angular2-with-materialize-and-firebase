@@ -45,10 +45,8 @@ user = {};
       edge: 'left', // Choose the horizontal origin
       closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
       draggable: true // Choose whether you can drag to open on touch screens
-    }
-  );
+     });  
      
-  
   }
 
   login2(){
@@ -71,9 +69,11 @@ user = {};
   }
   
   triggerToast() {
+    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
     if(!this.log){
        Materialize.toast('Tienes que estar logueado!', 4000);
     }
   }
+  
   
 }
