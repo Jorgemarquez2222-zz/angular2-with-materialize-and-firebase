@@ -28,6 +28,7 @@ import { CartService } from './services/cart.service';
 import { TiendaComponent } from './tienda/tienda.component';
 import { ProductsService } from './services/products.service';
 import { FirebaseDataService } from './services/firebase-data.service';
+import { DetailsCartComponent } from './details-cart/details-cart.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -69,6 +70,7 @@ export const firebaseConfig = {
     LoginComponent,
     CartComponent,
     TiendaComponent,
+    DetailsCartComponent,
     
   ],
   imports: [
