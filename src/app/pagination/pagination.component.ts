@@ -36,7 +36,7 @@ export class PaginationComponent implements OnInit  {
     tarjeta => { 
       this.miembros = tarjeta;
       this._spinner.stop();
-  });
+    });
   }
 
   OnDestroy(){

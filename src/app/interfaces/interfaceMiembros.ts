@@ -1,4 +1,3 @@
-
 export interface Miembros{
        id:string,
        title: string,

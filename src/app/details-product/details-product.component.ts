@@ -36,7 +36,6 @@ export class DetailsProductComponent implements OnInit {
               console.log(this.product);
             }
           });
-          
         }
       )
     }
