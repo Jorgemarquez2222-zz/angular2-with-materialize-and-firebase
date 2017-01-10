@@ -1,9 +1,9 @@
-<nav  class=" purple lighten-1 z-depth-3">
+<nav  class="  blue darken-3 lighten-1 z-depth-3">
   
      <ul  id="slide-out" class="side-nav target_slow">
           <li><div class="userView">
             <div class="background">
-              <img src="assets/office.jpg">
+              <img src="assets/12.png" class="responsive-img">
             </div>
             <a href="#!user"><img class="circle" src="{{ user.auth?.photoURL }}"></a>
             <a href="#!name"><span class="white-text name">{{ (user.auth)?.displayName }}</span></a>
@@ -68,7 +68,7 @@
         <a routerLink="/inicio"> 
         <h6 class=" alinear valign-wrapper right"> 
           <img *ngIf="user.auth?.photoURL" class=" circle" width="50" height="50" src="{{ user.auth?.photoURL }}" > 
-          {{ (user.auth)?.displayName }}
+          <span class="padizq"> {{ (user.auth)?.displayName }} </span>
         </h6>
         </a>
       </li>
