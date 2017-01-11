@@ -28,7 +28,6 @@ import { CartService } from './services/cart.service';
 import { TiendaComponent } from './tienda/tienda.component';
 import { ProductsService } from './services/products.service';
 import { FirebaseDataService } from './services/firebase-data.service';
-import { DetailsCartComponent } from './details-cart/details-cart.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -39,7 +38,7 @@ const appRoutes: Routes = [
   { path: 'pagination', component: PaginationComponent },
   { path: 'formularios', component: FormulariosComponent },
    { path: 'tienda', component: TiendaComponent },
-  { path: 'detailsMiembro/:id', component: DetailsMiembroComponent }
+  { path: 'detailsMiembro/:id', component: DetailsMiembroComponent },
 ];
 
 const myFirebaseAuthConfig = {
@@ -70,7 +69,6 @@ export const firebaseConfig = {
     LoginComponent,
     CartComponent,
     TiendaComponent,
-    DetailsCartComponent,
     
   ],
   imports: [

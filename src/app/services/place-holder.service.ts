@@ -7,9 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PlaceHolderService {
 
-  constructor(private http:Http) { 
-    console.log('Servie iniciated..');
-  }
+  constructor(private http:Http) {}
 
   getPost(){
    return this.http.get('https://jsonplaceholder.typicode.com/posts')

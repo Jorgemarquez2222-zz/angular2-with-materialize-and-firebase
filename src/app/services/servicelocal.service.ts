@@ -11,7 +11,7 @@ export class ServicelocalService {
 
     getMiembros(){
         return this._http.get('/app/json/miembros.json')
-      .map((res) => res.json());
+      .map(res => res.json());
       } 
 
      searchSrt(srt : string){
@@ -24,12 +24,6 @@ export class ServicelocalService {
       return miembros2;
     }
 
-    getMiembro(id:string){
-
-      
-        
-    }
-  
     delMiembroArray(miembro : Miembros){
     let posicion = this.miembros.indexOf(miembro);
     this.miembros.splice(posicion,1);

@@ -21,7 +21,12 @@ items: FirebaseListObservable<any>;
     }
 
     updateItem(miembro: Miembros, key: string) {
-      this.items.update(key, {colorFondo: miembro.colorFondo, title: miembro.title,body:miembro.body,  imgPerfil: miembro.imgPerfil });
+      this.items.update(key, 
+      {
+        colorFondo: miembro.colorFondo, 
+        title: miembro.title,body:miembro.body,  
+        imgPerfil: miembro.imgPerfil 
+      });
     }
     
     deleteItem(key: string) {    
