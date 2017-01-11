@@ -11,8 +11,8 @@ export class ProductsService {
   }
 
   getProducts(){
-        return this._http.get('http://localhost:4200/app/json/products.json')
-        .map( jh => jh.json())
+        return this._http.get('/app/json/products.json')
+        .map( res => res.json())
       }
 
 

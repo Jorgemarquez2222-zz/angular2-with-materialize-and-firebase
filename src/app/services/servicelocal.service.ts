@@ -10,8 +10,8 @@ export class ServicelocalService {
   constructor(public _http : Http ) {}
 
     getMiembros(){
-        return this._http.get('http://localhost:4200/app/json/miembros.json')
-        .map( jh => jh.json())
+        return this._http.get('/app/json/miembros.json')
+      .map((res) => res.json());
       } 
 
      searchSrt(srt : string){

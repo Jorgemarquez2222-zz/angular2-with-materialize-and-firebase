@@ -30,6 +30,7 @@ export class DataLocalComponent implements OnInit {
         }else{
          this._servicioLocal.getMiembros().subscribe(res => {
             this.miembros = res;
+           console.log(res);
             this._spinner.stop();
         })
         }
