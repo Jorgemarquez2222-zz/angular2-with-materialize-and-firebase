@@ -43,7 +43,6 @@ export class DataLocalComponent implements OnInit {
   }
 
   detalles(miembro : Miembros){
-    console.log(miembro)
    this.detallesMiembro = miembro;
 
   }
