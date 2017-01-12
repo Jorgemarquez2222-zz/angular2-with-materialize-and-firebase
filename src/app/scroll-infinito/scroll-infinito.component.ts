@@ -61,7 +61,7 @@ export class ScrollInfinitoComponent  implements OnInit{
     }
 
     onScroll () {
-            console.log('scrolled!!')
+            //console.log('scrolled!!')
         }
 
     onScrollDown () {
@@ -71,7 +71,7 @@ export class ScrollInfinitoComponent  implements OnInit{
     }
   
     onScrollUp () {
-      console.log('scrolled up!!')
+      //console.log('scrolled up!!')
     }
 
 }

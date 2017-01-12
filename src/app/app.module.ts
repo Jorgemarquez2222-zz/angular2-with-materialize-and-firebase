@@ -75,7 +75,9 @@ export const firebaseConfig = {
     CartComponent,
     TiendaComponent,
     DetailsProductComponent,
-    DetailsCartComponent
+    DetailsCartComponent,
+
+
     
   ],
   imports: [

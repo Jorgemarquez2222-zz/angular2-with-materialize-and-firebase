@@ -19,9 +19,6 @@ export class DetailsCartComponent implements OnInit {
   ngOnInit() {
     this.products = this._serviceCart.getProducts();
     this.details = this._serviceCart.getDetails();
-    console.log(this.products);
-    console.log(this.details);
-
     
   jQuery('.dropdown-button').dropdown({
       inDuration: 300,
