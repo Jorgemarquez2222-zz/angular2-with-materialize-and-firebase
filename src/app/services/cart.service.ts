@@ -10,8 +10,6 @@ export class CartService {
   private details : any;
 
   constructor( ) {
-    
-    //this.products=[{}];
     this.details= {total :0 , items:0};
    }
 
@@ -24,11 +22,11 @@ export class CartService {
   }
   
   addToCart(product: ProductCart){
-    if( this.products.indexOf(product) == -1 ){
+    let index = this.products.findIndex(x => x.id == product.id);//busca igualdad entre objetos por un atributo en un array
+    if(index == -1){
       product.quantity=1;
       this.products.push(product)
     }else{
-      let index = this.products.indexOf(product);
       this.products[index].quantity += 1;
     }
     this.details.items += 1;
@@ -36,7 +34,7 @@ export class CartService {
   }
 
   deleteToCart(product: ProductCart){
-    let index = this.products.indexOf(product);
+    let index = this.products.findIndex(x => x.id == product.id);
     this.products.splice(index,1);
     this.details.items -= product.quantity;
     this.details.total -= (product.price * product.quantity);

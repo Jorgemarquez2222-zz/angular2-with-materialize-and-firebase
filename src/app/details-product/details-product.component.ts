@@ -21,7 +21,6 @@ export class DetailsProductComponent implements OnInit {
             .subscribe((id) => {
               this.idproduct = id;            
               this.getProduct(this.idproduct);
-              console.log(this.idproduct);
                 });
     }
     
@@ -33,7 +32,6 @@ export class DetailsProductComponent implements OnInit {
           res.forEach(element => {
             if(element.id.toUpperCase() == id.toUpperCase()){
               this.product = element;
-              console.log(this.product);
             }
           });
         }
