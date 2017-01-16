@@ -65,6 +65,7 @@ export class ScrollInfinitoComponent  implements OnInit{
         }
 
     onScrollDown () {
+      this._spinner.start();
        this.start = this.end; 
        this.end= this.end + 6;
       this.callCardsScroll();
