@@ -12,9 +12,9 @@ https://git-scm.com/
 
 # npm install -g angular-cli
 
-git clone https://github.com/Jorgemarquez2222/angular2-with-materialize-and-firebase.git
+# git clone https://github.com/Jorgemarquez2222/angular2-with-materialize-and-firebase.git
 
-cd angular2-with-materialize-and-firebase
+# cd angular2-with-materialize-and-firebase
 
 # npm install
 
