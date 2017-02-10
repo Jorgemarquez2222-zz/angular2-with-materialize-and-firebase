@@ -6,6 +6,10 @@ Install nodeJs
 
 https://nodejs.org/es/
 
+install git
+
+https://git-scm.com/
+
 # npm install -g angular-cli
 
 git clone https://github.com/Jorgemarquez2222/angular2-with-materialize-and-firebase.git
@@ -16,3 +20,4 @@ cd angular2-with-materialize-and-firebase
 
 # ng serve
 
+open http://localhost:4200/ in your browser
