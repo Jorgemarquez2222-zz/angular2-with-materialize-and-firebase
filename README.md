@@ -6,7 +6,7 @@ Install nodeJs
 
 https://nodejs.org/es/
 
-install git
+Install git
 
 https://git-scm.com/
 
