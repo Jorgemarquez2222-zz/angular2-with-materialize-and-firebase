@@ -50,7 +50,7 @@ user = {};
   }
 
   login2(){
-    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
+//)    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
     this._authService.logeado ? 'Logout' : 'Login';
  
     if(this._authService.logeado){
@@ -60,7 +60,7 @@ user = {};
     }
   }
   qerror(){
-     jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
+  //   jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
   }
   mouseover(){
     this.ver = true
@@ -71,7 +71,7 @@ user = {};
   }
   
   triggerToast() {
-    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
+//    jQuery('div[id^=sidenav-overlay]').remove();//quitar error de Materialize cuando se contrae el SideNav
     if(!this.log){
        Materialize.toast('Tienes que estar logueado!', 4000);
     }
