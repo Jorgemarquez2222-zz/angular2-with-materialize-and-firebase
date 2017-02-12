@@ -5,14 +5,14 @@
     margin: 0 auto;
     text-align: center;
 }
-  body {
+  main {
     display: flex;
     min-height: 60vh;
     flex-direction: column;
   }
 
-  
+/*  
   main {
     flex: 1 0 auto;
   
-  }
+  }*/
