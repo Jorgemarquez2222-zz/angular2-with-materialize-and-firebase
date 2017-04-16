@@ -9,7 +9,7 @@ export class ProductsService {
   constructor(private _http : Http) {}
 
   getProducts(){
-        return this._http.get('http://localhost:3000/users')
+        return this._http.get('http://localhost:3000/api/products')
         .map( res => res.json())
       }
 
