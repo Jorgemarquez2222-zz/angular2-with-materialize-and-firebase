@@ -9,12 +9,14 @@ declare var jQuery:any;
 @Component({
   selector: 'app-data-local',
   templateUrl: './data-local.component.html',
-  styleUrls: ['./data-local.component.css']
+  styleUrls: ['./data-local.component.css'],
 })
 export class DataLocalComponent implements OnInit {
 
   miembros: Miembros[];
+
   detallesMiembro : Miembros;
+  
   constructor(
     private _servicioLocal: ServicelocalService,
      public af: AngularFire,
@@ -44,6 +46,7 @@ export class DataLocalComponent implements OnInit {
 
   detalles(miembro : Miembros){
    this.detallesMiembro = miembro;
+console.log('algo');
 
   }
 
